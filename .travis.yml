@@ -1,0 +1,18 @@
+---
+language: python
+python: "2.7"
+sudo: false
+
+install:
+    - git clone https://github.com/edunham/orglog.git 
+    - pip install -r orglog/requirements.txt
+    - git clone https://github.com/youknowone/gitstat.git
+    - cp gitstat_settings.py gitstat/settings.py
+    - cp aggregate_template.html gitstat/aggregate_template.html
+
+script: 
+    - python orglog/orglog.py servo
+    - python gitstat/gen.py 
+
+after_success:
+    - out/forcepush.sh
