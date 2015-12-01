@@ -12,7 +12,7 @@ install:
 
 script: 
     - python orglog/orglog.py servo
-    - mv orglog/log.txt gitstat/log.txt
+    - mv log.txt gitstat/log.txt
     - python gitstat/gen.py 
 
 after_success:
