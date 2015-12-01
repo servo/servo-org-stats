@@ -12,6 +12,8 @@ install:
 
 script: 
     - python orglog/orglog.py servo
+    - wc -l log.txt
+    - tail log.txt
     - mv log.txt gitstat/log.txt
     - python gitstat/gen.py 
 
