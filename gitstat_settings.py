@@ -6,7 +6,7 @@ CHART_SIZE = 70 # Maybe Google limit?
 CHARSET = 'utf-8'
 
 TEMPLATE_FILE = 'aggregate_template.html'
-INPUT_FILE = '../orglog/log.txt' # None for stdin
+INPUT_FILE = 'log.txt' # None for stdin
 OUTPUT_FILE = '../out/index.html' # None for stdout
 AUTHOR_FILE = 'authors.txt'
 
