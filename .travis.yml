@@ -6,7 +6,7 @@ sudo: false
 install:
     - git clone https://github.com/edunham/orglog.git 
     - pip install -r orglog/requirements.txt
-    - git clone https://github.com/youknowone/gitstat.git
+    - git clone https://github.com/edunham/gitstat.git
     - cp gitstat_settings.py gitstat/settings.py
     - cp aggregate_template.html gitstat/aggregate_template.html
 
