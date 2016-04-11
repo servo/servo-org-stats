@@ -15,8 +15,8 @@
       google.load('visualization', '1.0', {'packages':['corechart']});
 
       // Set a callback to run when the Google Visualization API is loaded.
-      //google.setOnLoadCallback(drawImpact);
-      //google.setOnLoadCallback(drawRate);
+      google.setOnLoadCallback(drawImpact);
+      google.setOnLoadCallback(drawRate);
 
       // Callback that creates and populates a data table,
       // instantiates the pie chart, passes in the data and
@@ -98,7 +98,8 @@
       </div>
       <header id="top">
         <h1>{{ settings.TITLE }}</h1>
-        <p>These stats are built nightly on TravisCI. Pull requests to the <a
+        <p>These stats are built nightly on TravisCI. Graphs may take a few
+           seconds to render. Pull requests to the <a
            href="https://github.com/edunham/orglog">orglog</a> and <a
            href="https://github.com/youknowone/gitstat/">gitstat</a> tools are
            welcome!</p>
@@ -107,7 +108,7 @@
       <div style="width:400px;">
         <section id="summary">{{ TOP }}<h1>Summary</h1>
         <ul>
-          <li>These stats were gathered from the commit histories of every
+          <li>These stats were gathered from the commit histories of every 
               non-fork repo in the servo github organization</li>
           <li>Statistics from {{ total.commits[-1].date.short }} to {{ total.commits[0].date.short }}</li>
           <li>{{ numformat(authors|length) }} contributors</li>
@@ -119,26 +120,51 @@
           <li>{{ mauthors|length }} mergers merged {{ mcommits|length }} commits</li>
         </ul>
         </section>
-
+            
         <section id="group">{{ TOP }}<h1>Author by Group</h1>
-          {% if newfaces.authors|length %}
-          <section id="group-newfaces">{{ TOP }}<h1>New Faces</h1>
-          {% if newfaces.url %}
-          <p><a href="{{ newfaces.url }}">{{ newfaces.url }}</a>
+          {% for group in [actives, newfaces] + groups %}
+          {% if group.authors|length %}
+          <section id="group-{{ group.groupname }}">{{ TOP }}<h1>{{ group.groupname }}</h1>
+          {% if group.url %}
+          <p><a href="{{ group.url }}">{{ group.url }}</a>
           {% endif %}
-          {% if newfaces.description %}
-          <p>{{ newfaces.description }}</p>
+          {% if group.description %}
+          <p>{{ group.description }}</p>
           {% endif %}
           <ul>
-            <li>{{ newfaces.authors|length }} users contributed {{ numformat(newfaces.commits|length) }} commits</li>
-            <li>{{ (newfaces.authors|length * 100 / authors|length)|round(1) }}% of users</li>
-            <li>{{ (newfaces.commits|length * 100 / total.commits|length)|round(1) }}% of commits, impacts {{ newfaces.commit_impact }} of {{ total.commit_impact }}</li>
+            <li>{{ group.authors|length }} users contributed {{ numformat(group.commits|length) }} commits</li>
+            <li>{{ (group.authors|length * 100 / authors|length)|round(1) }}% of users</li>
+            <li>{{ (group.commits|length * 100 / total.commits|length)|round(1) }}% of commits, impacts {{ group.commit_impact }} of {{ total.commit_impact }}</li>
           </ul>
           </section>
           {% endif %}
+          {% endfor %}
+          <section id="group-merge">{{ TOP }}<h1>Mergers</h1>
+          <ul>
+            <li>{{ mauthors|length }} users merged {{ mcommits|length }} commits</li>
+            <li>{{ (mcommits|length * 100 / total.commits|length)|round(1) }}% of commits, but not counted in total</li>
+          </ul>
+          <p>Members are:</p>
+          <ul>
+            {% for author in mauthors %}
+            <li><a href="#author-{{ author.safe_email }}">{{ author.name }}</a> merged {{ mcommitd[author.email]|length }} commits</li>
+            {% endfor %}
+          </ul>
+          </section>
+        </section>
+          
+        <section id="index">{{ TOP }}<h1>Author Index</h1>
+        <ul>
+        {%- for author in authors %}
+          <li>#{{ author.rank }} <a href="#author-{{ author.tag }}">{{ author.name }}</a>({{ author.commits|length }} commits
+            {%- if author in newfaces.authors %}, <span style="color:red">New!</span>{% elif author in actives.authors %}, <span style="color:blue">Active!</span>{% endif -%}
+          )</li>
+        {%- endfor %}
+        </ul>
+        </section> 
       </div>
-      <section id="author">{{ TOP }}<h1>New Authors</h1>
-      {% for author in newfaces.authors %}
+      <section id="author">{{ TOP }}<h1>Authors</h1>
+      {% for author in authors %}
         <section id="author-{{ author.tag }}" class="fixed">{{ TOP }}<h1 id="{{ author.names[0] }}">{{ author.names[0] }}</h1>
           <section>
           <dl>
