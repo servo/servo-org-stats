@@ -16,7 +16,7 @@ COMMIT_LIST_COUNT = 20
 
 REPO_URL = 'https://github.com/youknowone/gitstat/tree/master'
 COMMIT_URL = 'http://github.com/youknowone/gitstat/commit/{commit}'
-ACTIVE_DAYS = 30
+ACTIVE_DAYS = 7
 
 GITHUB_RIBBON = None
 
