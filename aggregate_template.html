@@ -34,12 +34,12 @@
           ,['({{ others.commits|length }}) Other {{ others.names|length }} users', {{ others.commit_impact }}]
         {% endif %}
         {% for group in [actives, newfaces] + groups %}
-        {% if loop.first %}
-          ,['-- groups --', 0]
-        {% endif %}
-        {% if group.authors|length > 0 %}
-          ,['({{ group.commits|length }}) {{ group.groupname }} group {{ group.authors|length }} users', {{ group.commit_impact }}]
-        {% endif %}
+            {% if loop.first %}
+              ,['-- groups --', 0]
+            {% endif %}
+            {% if group.authors|length > 0 %}
+              ,['({{ group.commits|length }}) {{ group.groupname }} group {{ group.authors|length }} users', {{ group.commit_impact }}]
+            {% endif %}
         {% endfor %}
         ]);
 
@@ -108,7 +108,7 @@
       <div style="width:400px;">
         <section id="summary">{{ TOP }}<h1>Summary</h1>
         <ul>
-          <li>These stats were gathered from the commit histories of every 
+          <li>These stats were gathered from the commit histories of every
               non-fork repo in the servo github organization</li>
           <li>Statistics from {{ total.commits[-1].date.short }} to {{ total.commits[0].date.short }}</li>
           <li>{{ numformat(authors|length) }} contributors</li>
@@ -120,7 +120,7 @@
           <li>{{ mauthors|length }} mergers merged {{ mcommits|length }} commits</li>
         </ul>
         </section>
-            
+
         <section id="group">{{ TOP }}<h1>Author by Group</h1>
           {% for group in [actives, newfaces] + groups %}
           {% if group.authors|length %}
@@ -135,6 +135,12 @@
             <li>{{ group.authors|length }} users contributed {{ numformat(group.commits|length) }} commits</li>
             <li>{{ (group.authors|length * 100 / authors|length)|round(1) }}% of users</li>
             <li>{{ (group.commits|length * 100 / total.commits|length)|round(1) }}% of commits, impacts {{ group.commit_impact }} of {{ total.commit_impact }}</li>
+          </ul>
+          <p>Members are:</p>
+          <ul>
+            {% for author in group.authors %}
+            <li><a href="#author-{{ author.safe_email }}">{{ author.name }}</a></li>
+            {% endfor %}
           </ul>
           </section>
           {% endif %}
@@ -152,7 +158,7 @@
           </ul>
           </section>
         </section>
-          
+
         <section id="index">{{ TOP }}<h1>Author Index</h1>
         <ul>
         {%- for author in authors %}
@@ -161,7 +167,7 @@
           )</li>
         {%- endfor %}
         </ul>
-        </section> 
+        </section>
       </div>
       <section id="author">{{ TOP }}<h1>Authors</h1>
       {% for author in authors %}
