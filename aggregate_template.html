@@ -122,7 +122,7 @@
         </section>
 
         <section id="group">{{ TOP }}<h1>Author by Group</h1>
-          {% for group in [actives, newfaces] + groups %}
+          {% for group in [newfaces, actives] + groups %}
           {% if group.authors|length %}
           <section id="group-{{ group.groupname }}">{{ TOP }}<h1>{{ group.groupname }}</h1>
           {% if group.url %}
