@@ -1,6 +1,8 @@
 org = "servo"
 
 ignore_repos = ["skia", "skia-snapshots", "cairo"]
+count_forks = ["glutin","rust-openssl"]
+
 
 # Path to where we'll dump the bare checkouts. Must end in /
 clones_dir = "repos/"
