@@ -13,6 +13,6 @@ git commit -m "Deploy to GitHub Pages"
 # will be lost, since we are overwriting it.) We redirect any output to
 # /dev/null to hide any sensitive credential data that might otherwise be
 # exposed.
-git push --force --quiet "https://${GH_TOKEN}@github.com/edunham/servo-stats" master:gh-pages > /dev/null 2>&1
+git push --force --quiet "https://${GH_TOKEN}@github.com/servo/servo-org-stats" master:gh-pages > /dev/null 2>&1
 
-echo "force pushed to servo-stats"
+echo "force pushed to servo-org-stats gh-pages"
