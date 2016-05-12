@@ -6,8 +6,9 @@ git status
 head index.html
 git add index.html
 git add README.md
-git commit -m "Deploy to GitHub Pages"
-
+git status
+git commit -m "Deploy $TRAVIS_COMMIT, \"$TRAVIS_COMMIT_MESSAGE\""
+git show
 # Force push from the current repo's master branch to the remote
 # repo's gh-pages branch. (All previous history on the gh-pages branch
 # will be lost, since we are overwriting it.) We redirect any output to
@@ -15,4 +16,4 @@ git commit -m "Deploy to GitHub Pages"
 # exposed.
 git push --force --quiet "https://${GH_TOKEN}@github.com/servo/servo-org-stats" master:gh-pages > /dev/null 2>&1
 
-echo "force pushed to servo-org-stats gh-pages"
+echo "force pushed $TRAVIS_COMMIT_MESSAGE to servo-org-stats gh-pages"
