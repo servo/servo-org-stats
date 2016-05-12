@@ -85,7 +85,7 @@ ALIASES = {
     'lkuper@mozilla.com': 'lindsey@composition.al', #reverse?
     'lars@lars.com': 'larsberg@mozilla.com',
     'lbergstrom@mozilla.com': 'larsberg@mozilla.com',
-    'ms2ger@gmail.com': 'ms2ger@mozilla.com',
+    'Ms2ger@gmail.com': 'ms2ger@mozilla.com',
 }
 
 MOZILLA = ["josh@joshmatthews.net",
