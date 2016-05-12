@@ -16,9 +16,9 @@ COMMIT_LIST_COUNT = 20
 
 ACTIVE_DAYS = 7
 
-# TODO: Switch to Piwik on Sandstorm
-GOOGLE_ANALYTICS = 'UA-28402752-3', 'youknowone.org'
-
+PIWIK = {"tracker": "https://api-8afce4501cd56a4921fd17fe0b9d3f61.oasis.sandstorm.io",
+         "token": "aFzZxUdC61h9PDHXj16t5O3wMtjOHXPd5-mf3WpHHCJ",
+         "source": "https://wzbb7q4leo9d3ypskuvy.oasis.sandstorm.io/embed.js"}
 
 REPO_URL = 'https://github.com/mozilla/servo/tree/master'
 COMMIT_URL = 'http://github.com/mozilla/servo/commit/{commit}'

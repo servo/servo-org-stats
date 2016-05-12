@@ -201,6 +201,24 @@
           ga('send', 'pageview');
         </script>
         {% endif %}
+        {% if settings.PIWIK%}
+            <!-- Piwik -->
+            <script type="text/javascript">
+                var _paq = _paq || [];
+                _paq.push(['trackPageView']);
+                _paq.push(['enableLinkTracking']);
+                (function() {
+                     _paq.push(['setTrackerUrl', PIWIK['tracker']]);
+                    _paq.push(['setSiteId', 1]);
+                    _paq.push(['setApiToken', PIWIK['token']]);
+                    var d=document, g=d.createElement('script'),
+                    s=d.getElementsByTagName('script')[0];
+                    g.type='text/javascript'; g.async=true; g.defer=true;
+                    g.src=PIWIK['source'];
+                    s.parentNode.insertBefore(g,s);
+                })();
+            </script>
+        {% endif %}
       </footer>
     </div>
   </body>
