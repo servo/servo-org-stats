@@ -1,10 +1,16 @@
 Servo Org Stats
 ---------------
 
-The master branch of this repo holds assorted metadata needed to combine
-[gitstat](https://github.com/youknowone/gitstat/),
-[orglog](https://github.com/edunham/orglog),
+The master branch of this repo holds assorted metadata needed to combine a
+fork of
+[gitstat](https://github.com/edunham/gitstat/), the
+[orglog](https://github.com/edunham/orglog) tool,
 [TravisCI](http://travis-ci.org/), and [nightli.es](https://nightli.es/) to
 emit fancy graphs. The gh-pages branch contains the fancy graphs, overwritten
-every day with the latest ones. 
+every day with the latest ones.
+
+Gitstat's license is available
+[here](https://github.com/youknowone/gitstat/blob/master/LICENSE) and Orglog's
+license is available
+[here](https://github.com/edunham/orglog/blob/master/LICENSE).
 
