@@ -50,6 +50,7 @@ ALIASES = {
     'graydon@4632428-PC.(none)': 'graydon@mozilla.com',
     'as@hacks.yi.org': 'mad.one@gmail.com',
     'metajack+bors@gmail.com': 'release+servo@mozilla.com',
+    'lbergstrom+bors@gmail.com': 'release+servo@mozilla.com',
     'Manishearth@users.noreply.github.com': 'manishsmail@gmail.com',
     'cavalcantii@gmail.com': 'a.cavalcanti@samsung.com',
     'a.cavalcanti@sisa.samsung.com': 'a.cavalcanti@samsung.com',
@@ -82,6 +83,9 @@ ALIASES = {
     'eholk@mozilla.com': 'eric.holk@gmail.com', # reverse?
     'eslaughter@mozilla.com': 'elliottslaughter@gmail.com', #reverse?
     'lkuper@mozilla.com': 'lindsey@composition.al', #reverse?
+    'lars@lars.com': 'larsberg@mozilla.com',
+    'lbergstrom@mozilla.com': 'larsberg@mozilla.com',
+    'ms2ger@gmail.com': 'ms2ger@mozilla.com',
 }
 
 MOZILLA = ["josh@joshmatthews.net",
@@ -107,22 +111,12 @@ SAMSUNG = ["sanxiyn@gmail.com",
            "cavalcantii@gmail.com",
            "brunoabinader@gmail.com",
 ]
-COMMUNITY = ["ms2ger@gmail.com",
-             "saneyuki.snyk@gmail.com",
-             "saurabhanandiit@gmail.com",
-             "utatane.tea@gmail.com",
-             "sankha93@gmail.com",
-             "daniel@glazman.org",
-             "evilpies@gmail.com",
-             "pylaurent1314@gmail.com",
-             "manishsmail@gmail.com",
-]
 
 GROUPS = [
     {
         'name': 'Bot',
-        'description': 'Robot is your friend', # -- sanxiyn
-        'filter': lambda author: author.name == 'bors',
+        'description': 'Robot is your friend',
+        'filter': lambda author: author.name == 'bors-servo',
         'priority': 1,
     },
     {
@@ -138,10 +132,6 @@ GROUPS = [
     {
         'name': 'Igalia',
         'filter': lambda author: '@igalia.com' in author.email,
-    },
-    {
-        'name': 'Mozilla Community',
-        'filter': lambda author: author.email in COMMUNITY,
     },
     {
         'name': 'Unidentified',
