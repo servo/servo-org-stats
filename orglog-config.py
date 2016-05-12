@@ -1,6 +1,6 @@
 org = "servo"
 
-ignore_repos = ["skia", "skia-snapshots", "cairo"]
+ignore_repos = ["skia", "skia-snapshots", "cairo", "libpng", "libcss"]
 count_forks = ["glutin","rust-openssl"]
 
 
