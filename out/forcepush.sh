@@ -16,4 +16,4 @@ git show
 # exposed.
 git push --force --quiet "https://${GH_TOKEN}@github.com/servo/servo-org-stats" master:gh-pages > /dev/null 2>&1
 
-echo "force pushed $TRAVIS_COMMIT_MESSAGE to servo-org-stats gh-pages"
+echo "force pushed $TRAVIS_COMMIT to servo-org-stats gh-pages"
