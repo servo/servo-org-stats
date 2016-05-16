@@ -7,7 +7,7 @@ head index.html
 git add index.html
 git add README.md
 git status
-git commit -m "Deploy $TRAVIS_COMMIT, \"$TRAVIS_COMMIT_MESSAGE\""
+git commit -m "Deploy $TRAVIS_COMMIT"
 git show
 # Force push from the current repo's master branch to the remote
 # repo's gh-pages branch. (All previous history on the gh-pages branch
