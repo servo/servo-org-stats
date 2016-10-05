@@ -1,7 +1,8 @@
 org = "servo"
 
 ignore_repos = ["skia", "skia-snapshots", "cairo", "libpng", "libcss",
-                "libhubbub", "libparserutils", "libwapcaplet", "pixman"]
+                "libhubbub", "libparserutils", "libwapcaplet", "pixman",
+                "libfreetype2"]
 count_forks = ["glutin","rust-openssl"]
 
 
