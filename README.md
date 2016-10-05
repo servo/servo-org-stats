@@ -1,6 +1,8 @@
 Servo Org Stats
 ---------------
 
+[![Build Status](https://travis-ci.org/servo/servo-org-stats.svg?branch=master)](https://travis-ci.org/servo/servo-org-stats)
+
 The master branch of this repo holds assorted metadata needed to combine a
 fork of
 [gitstat](https://github.com/edunham/gitstat/), the
