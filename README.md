@@ -16,3 +16,11 @@ Gitstat's license is available
 license is available
 [here](https://github.com/edunham/orglog/blob/master/LICENSE).
 
+### Deployment: 
+
+Travis needs `GH_USER`, `GH_PASS`, and `GH_TOKEN` environment variables 
+belonging to an account that can push to this repo. The token should 
+have the `repo` scope. The account @rustacean is used here because 
+it does not have the same perms on other repos as @bors-servo.
+
+
