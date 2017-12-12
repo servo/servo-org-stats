@@ -7,7 +7,7 @@ The master branch of this repo holds assorted metadata needed to combine a
 fork of
 [gitstat](https://github.com/edunham/gitstat/), the
 [orglog](https://github.com/edunham/orglog) tool,
-[TravisCI](http://travis-ci.org/), and [nightli.es](https://nightli.es/) to
+[TravisCI](https://travis-ci.org/), and [nightli.es](https://nightli.es/) to
 emit fancy graphs. The gh-pages branch contains the fancy graphs, overwritten
 every day with the latest ones.
 
